@@ -251,3 +251,220 @@ echo "<br/>";
 
 $lang = ['ru', 'en'];
 $day = [1, 2, 3, 4, 5, 6, 7];
+echo "<br/>";
+echo "<br/>";
+
+
+
+/* -----------------------------   БЛОК 1 - УРОК 3   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 1 - УРОК 3   ------------------------------------- </strong><br/><br/>";
+
+/* Работа с if-else */
+echo "<strong> Работа с if-else </strong><br/>";
+
+$a = 0;
+if ($a == 0) {
+        echo "Верно";
+} else {
+        echo "Неверно";
+};
+echo "<br/>";
+echo "<br/>";
+
+$a = 1;
+if ($a > 0) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = -1;
+if ($a < 0) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 0;
+if ($a >= 0) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 0;
+if ($a <= 0) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 1;
+if ($a != 0) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = "test";
+if ($a == "test") echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 1;
+if ($a === 1) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с empty и isset */
+echo "<strong> Работа с empty и isset </strong><br/>";
+
+$a = null;
+if (empty($a)) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 1;
+if (!empty($a)) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 3;
+if (isset($a)) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = null;
+if (!isset($a)) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с логическими переменными */
+echo "<strong> Работа с логическими переменными </strong><br/>";
+
+$var = true;
+if ($var == true) echo "Верно"; else "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+if ($var == true){
+        echo "Верно";
+} else {
+        echo "Неверно";
+};
+echo "<br/>";
+echo "<br/>";
+
+$var = false;
+if ($var != true) echo "Верно"; else "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+if ($var != true){
+        echo "Верно";
+} else {
+        echo "Неверно";
+};
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с OR и AND */
+echo "<strong> Работа с OR и AND </strong><br/>";
+
+$a = 2;
+if ($a > 0 && $a < 5) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+$a = 5;
+if ($a == 0 || $a == 2) {
+        echo $a += 7;        
+} else {
+        echo $a /= 10;
+}
+echo "<br/>";
+echo "<br/>";
+
+$a = 1; 
+$b = 3;
+if ($a <= 1 && $b >= 3) {
+        echo $a + $b;
+} else {
+        echo $a - $b;
+}
+echo "<br/>";
+echo "<br/>";
+
+$a = 3; $b = 5;
+if ($a > 2 && $a < 11 || $b >= 5 && $b < 14) echo "Верно"; else echo "Неверно";
+echo "<br/>";
+echo "<br/>";
+
+/* На switch-case */
+echo "<strong> На switch-case </strong><br/>";
+
+$num = 1;
+switch ($num) {
+        case '1':
+                $result = "зима";
+        break;
+        case '2':
+                $result = "весна";
+        break; 
+        case '3':
+                $result =  "лето";
+        break;
+        case '4':
+                $result = "осень";
+        break;
+        default:
+                $result = "ошибка";
+        break;
+}
+echo $result;
+echo "<br/>";
+echo "<br/>";
+
+/* Задачи */
+echo "<strong> Задачи </strong><br/>";
+
+$day = 30;
+if ($day >= 1 && $day <= 10) {
+        echo "Декада 1";
+} elseif ($day >= 11 && $day <= 20) {
+        echo "Декада 2";
+} else echo "Декада 3"; // При условии, что значения только от 1 до 31.
+echo "<br/>";
+echo "<br/>";
+
+$month = 12;
+if ($month == 12 || $month >= 1 && $month < 3) {
+        echo "зима";
+} elseif ($month >= 3 && $month <= 5) {
+        echo "весна";
+} elseif ($month >= 6 && $month <= 8) {
+        echo "лето";
+} else echo "осень"; // При условии, что значения только от 1 до 12.
+echo "<br/>";
+echo "<br/>";
+
+$year = 2020;
+if ($year % 4 == 0  && $year % 100 != 0 || $year % 400 == 0) {
+        echo "високосный";
+} else echo "не вискокосный";
+echo "<br/>";
+echo "<br/>";
+
+$str = 'abcde';
+if ($str[0] === 'a') echo "да"; else echo "нет";
+echo "<br/>";
+echo "<br/>";
+
+$str = '12345';
+if ($str[0] == 1 || $str[0] == 2 || $srt[0] == 3) echo "да"; else echo "нет";
+echo "<br/>";
+echo "<br/>";
+
+$str = [1,2,3];
+foreach ($str as $num) {
+        $num += $num;        
+}
+echo $num;
+// решается сложением вручную, но мне хотелось применить foreach, поэтому [1,2,3], а не '123'
+echo "<br/>";
+echo "<br/>";
+
+$str = '123456';
+if (($str[0]+$str[1]+$str[2]) == ($str[3]+$str[4]+$str[5])) echo 'Да'; else echo 'Нет';
+echo "<br/>";
+echo "<br/>";	

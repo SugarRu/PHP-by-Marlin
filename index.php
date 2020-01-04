@@ -91,7 +91,7 @@ $second = 42;
 echo "мое время - " . $hour . ":" . $minute . ":" . $second;
 echo "<br/>";
 
-$a = 2;
+$a = 3;
 echo $a *= $a;
 echo "<br/>";
 echo "через pow: " . pow($a, 1); 
@@ -468,3 +468,257 @@ $str = '123456';
 if (($str[0]+$str[1]+$str[2]) == ($str[3]+$str[4]+$str[5])) echo 'Да'; else echo 'Нет';
 echo "<br/>";
 echo "<br/>";	
+
+/* -----------------------------   БЛОК 1 - УРОК 4   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 1 - УРОК 4   ------------------------------------- </strong><br/><br/>";
+
+/* Работа с foreach */
+echo "<strong> Работа с foreach </strong><br/>";
+
+$arr = ['html', 'css', 'php', 'js', 'jq'];
+foreach ($arr as $elem) {
+        echo $elem.'<br>';
+}
+
+echo "<br/>";
+		
+
+$arr = [1, 2, 3, 4, 5];
+$result = 0;
+foreach ($arr as $key) {
+        $result += $key;
+}
+echo $result;
+echo "<br/>";
+echo "<br/>";		
+
+$arr = [1, 2, 3, 4, 5];
+$result = 0;
+foreach ($arr as $key) {
+        $result += pow($key, 2);       
+}
+echo $result;
+echo "<br/>";
+echo "<br/>";	
+
+/* Работа с ключами */
+echo "<strong> Работа с ключами </strong><br/>";
+
+$arr = ['green'=>'зеленый', 'red'=>'красный','blue'=>'голубой'];
+
+foreach ($arr as $key => $color) {
+        echo $key . ' - ' . $color . '<br>';
+}
+echo "<br/>";
+echo "<br/>";	
+
+$arr = ['Коля' => 200, 'Вася' => 300, 'Петя' => 400];
+foreach ($arr as $key => $value) {
+        echo $key . ' - зарплата ' . $value . ' долларов' . '<br>';
+}
+echo "<br/>";
+echo "<br/>";
+
+/* Циклы while и for */
+echo "<strong> Циклы while и for </strong><br/>";
+
+$a = 1;
+while ($a <= 100) {
+        echo $a . PHP_EOL;
+        $a++;
+}
+echo "<br/>";
+echo "<br/>";	
+
+for ($i=1; $i < 101 ; $i++) { 
+        echo $i . PHP_EOL;       
+}
+echo "<br/>";
+echo "<br/>";	
+
+$a = 11;
+while ($a <= 33) {
+        echo $a . PHP_EOL;
+        $a++;
+}
+echo "<br/>";
+echo "<br/>";	
+
+for ($i=11; $i <= 33 ; $i++) { 
+        echo $i . PHP_EOL;       
+}
+echo "<br/>";
+echo "<br/>";
+
+$a = 0;
+while ($a <= 98) {
+        echo $a + 2 . PHP_EOL;
+        $a = $a +2;
+}
+echo "<br/>";
+echo "<br/>";	
+
+for ($i=2; $i <= 100 ; $i = $i +2) { 
+        echo $i . PHP_EOL;       
+}
+echo "<br/>";
+echo "<br/>";
+
+$a = 1;
+$b = 0;
+while ($a <= 100) {
+     $b = $b + $a;
+     $a++;     
+}
+echo $b;
+echo "<br/>";
+echo "<br/>";	
+
+$b = 0;
+for ($i = 1; $i <= 100 ; $i++) { 
+        $b = $b + $i;       
+}
+echo $b;
+echo "<br/>";
+echo "<br/>";
+
+/* Задачи */
+echo "<strong> Задачи </strong><br/>";
+
+$arr = [2, 5, 9, 15, 0 , 4];
+foreach ($arr as $value ) {
+        if ($value > 3 && $value < 10) {
+                echo $value . PHP_EOL;
+        }
+}
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, -2, -5, -7, 3, 9];
+$sum = 0;
+foreach ($arr as $value ) {
+        if ($value > 0) {
+                $sum = $sum + $value;
+        }
+}
+echo $sum;
+echo "<br/>";
+echo "<br/>";
+
+$arr = [ 1, 2, 5, 9, 4, 13, 4, 10];
+foreach ($arr as $value) {
+        if ($value == 4) {
+                echo "Есть";
+        break;
+        }
+}
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['10', '20', '30', '50', '235', '3000'];
+foreach ($arr as $value) {
+        if ($value[0] == 1 || $value[0] == 2 || $value[0] == 5) {
+                echo $value . PHP_EOL;
+        }
+}
+echo "<br/>";
+echo "<br/>";
+
+$arr = []; // заполняю массив через цикл
+$a = 0;
+while ($a < 9) {
+        $arr[$a] = $a + 1;
+        $a++;        
+}
+// хитрый способ
+foreach ($arr as $value ) {
+        echo '-' . $value;
+}
+echo '-'; 
+echo "<br/>";
+echo "<br/>";
+
+// честный способ
+$arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+foreach ($arr as $key => $elem) {
+        if ($key == 0) {
+                echo '-' . $elem . '-';
+        } else {
+                echo $elem . '-';
+        }
+}
+echo "<br/>";
+echo "<br/>";
+
+$week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+foreach ($week as $key => $value) {
+        if ($key >4) {
+                echo "<strong>" . $value . "</strong>" . PHP_EOL;
+        } else {
+                echo $value . PHP_EOL;
+        }
+}
+echo "<br/>";
+echo "<br/>";
+
+$week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+$day = 'Sat';
+foreach ($week as $key => $value) {
+        if ($value == $day) {
+                echo "<em>" . $value . "</em>" . PHP_EOL;
+        } else {
+                echo $value . PHP_EOL;
+        }
+}
+echo "<br/>";
+echo "<br/>";
+
+/* Задачи посложнее */
+echo "<strong> Задачи посложнее </strong><br/>";
+        
+$arr = [0];
+for ($i=0; $i < 100 ; $i++) { 
+        $arr[$i] = $i + 1;
+}
+
+foreach ($arr as $key => $value) {
+        echo $value . PHP_EOL;
+}
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['green'=>'зеленый', 'red'=>'красный', 'blue'=>'голубой'];
+$en = [];
+$ru = [];
+foreach ($arr as $key => $value) {
+        $en[] = $key;
+        $ru[] = $value;
+}
+foreach ($en as $key => $value) {
+        echo $value . PHP_EOL;
+}
+echo "<br/>";
+foreach ($ru as $key => $value) {
+        echo $value . PHP_EOL;
+}
+echo "<br/>";
+echo "<br/>";
+
+$num = 1000;
+$count = 0;
+while ($num >= 50) {
+        $num = $num / 2;
+        $count++;
+}
+echo $count;
+echo "<br/>";
+echo "<br/>";
+
+$num = 1000;
+$count = 0;
+for ($i = $num; $i > 50 ; $i = $i / 2) { 
+        $count++;
+}
+echo $count;
+echo "<br/>";
+echo "<br/>";

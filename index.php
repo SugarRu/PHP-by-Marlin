@@ -722,3 +722,244 @@ for ($i = $num; $i > 50 ; $i = $i / 2) {
 echo $count;
 echo "<br/>";
 echo "<br/>";
+
+/* -----------------------------   БЛОК 1 - УРОК 7   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 1 - УРОК 7   ------------------------------------- </strong><br/><br/>";
+
+/* Работа со строковыми функциями */
+echo "<strong> Работа со строковыми функциями </strong><br/>";
+echo "<br/>";
+
+echo strtoupper('minsk');
+echo "<br/>";
+echo "<br/>";
+
+echo mb_strtoupper('минск');
+echo "<br/>";
+echo "<br/>";
+
+echo ucfirst(strtolower('MINSK'));
+echo "<br/>";
+echo "<br/>";
+
+$date = '31-12-2030';
+$arr = explode('-', $date);
+foreach ($arr as $key => $value) {
+        if ($key < 2) 
+        echo $value . '.';
+        else echo $value;
+}
+
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с регистром символов */
+echo "<strong> Работа с регистром символов </strong><br/>";
+echo "<br/>";
+echo "<br/>";
+
+echo strtoupper('php');
+echo "<br/>";
+echo "<br/>";
+
+echo strtolower('PHP');
+echo "<br/>";
+echo "<br/>";
+
+echo ucfirst('london');
+echo "<br/>";
+echo "<br/>";
+
+echo lcfirst('London');
+echo "<br/>";
+echo "<br/>";
+
+echo ucwords('london is the capital of great britain');
+echo "<br/>";
+echo "<br/>";
+
+echo ucfirst(strtolower('LONDON'));
+echo "<br/>";
+echo "<br/>";
+
+$str = 'html css php'; 
+// решение через explode
+$arr = explode(' ', $str);
+foreach ($arr as $key => $value) {
+        echo $value . PHP_EOL;
+}
+echo "<br/>";
+echo "<br/>";
+// решение через substr
+echo substr($str, 0, 4) . ' ' . substr($str, 5, 3) . ' ' . substr($str, 9, 3);
+echo "<br/>";
+echo "<br/>";
+
+$str = 'строка';
+echo mb_substr($str, -3);
+echo "<br/>";
+echo "<br/>";
+
+$str = 'http://university.marlindev.ru/';
+if (substr($str, 0, 7) == 'http://') {
+        echo 'Да';
+} else echo 'Нет';
+echo "<br/>";
+echo "<br/>";
+
+if (substr($str, 0, 7) == 'http://' || substr($str, 0, 8) == 'https://') {
+        echo "yes";
+} else echo "Oh no";
+echo "<br/>";
+echo "<br/>";
+
+$str = 'picture.png';
+if (substr($str, -4) == '.png') {
+        echo "yes again";
+} else echo "no";
+echo "<br/>";
+echo "<br/>";
+
+$str = 'picture.png';
+if (substr($str, -4) == '.png' || substr($str, -4) == '.jpg') {
+        echo "yes yes yes";
+} else echo "no";
+echo "<br/>";
+echo "<br/>";
+
+$str = "There are more than 5 letters";
+if (iconv_strlen($str) > 5) {
+        echo substr($str, 0, 5) . '...';
+} else {
+        echo $str;
+}
+echo "<br/>";
+echo "<br/>";
+
+$str = 'Banana cucumber';
+echo strtr($str, ['a' => 1, 'b' => 2, 'c' => 3]);
+echo "<br/>";
+echo "<br/>";
+
+echo strtr($str, 'abc', 123);
+echo "<br/>";
+echo "<br/>";
+
+$str = 'banana cucumber';
+echo substr_replace($str, '!!!', 2, 5);
+echo "<br/>";
+echo "<br/>";
+
+$str = 'abc abc abc';
+echo strpos ($str, 'b');
+echo "<br/>";
+echo "<br/>";
+
+echo strrpos($str, 'b');
+echo "<br/>";
+echo "<br/>";
+
+echo strpos($str, 'b', 3);
+echo "<br/>";
+echo "<br/>";
+
+$str = 'aaa aaa aaa aaa aaa';
+echo strpos($str, ' ', 4);
+echo "<br/>";
+echo "<br/>";
+
+$str = '..one dot is missing..';
+if (strpos($str, '..') === 0 || (strpos($str, '..') == true)) {
+        echo "that is so true";
+} else {
+        echo "false";
+}
+echo "<br/>";
+echo "<br/>";
+
+$str = 'http://';
+if (strpos($str, 'http://') !== false) {
+        echo " true";
+}
+echo "<br/>";
+echo "<br/>";
+
+$str = 'html css php';
+echo implode(',', explode( ' ', $str));
+echo "<br/>";
+echo "<br/>";
+
+$date = '2013-12-31';
+echo implode('.', explode('-', $date));
+echo "<br/>";
+echo "<br/>";
+
+$str = '1234567890';
+$arr = str_split($str, 2);
+foreach ($arr as $key => $value) {
+        echo $value . PHP_EOL;
+}
+echo "<br/>";
+echo "<br/>";
+
+$arr = str_split($str, 1);
+foreach ($arr as $key => $value) {
+        echo $value . PHP_EOL;
+}
+echo "<br/>";
+echo "<br/>";
+
+$str = '1234567890';
+echo implode('-', str_split($str, 2));
+echo "<br/>";
+echo "<br/>";
+
+echo rtrim("spaces ");
+echo "<br/>";
+echo "<br/>";
+
+echo trim("|php|", '|');
+echo "<br/>";
+echo "<br/>";
+
+$str = 'слова слова слова.';
+echo rtrim($str, '.') . '.';
+echo "<br/>";
+echo "<br/>";
+
+echo strip_tags('html, <b>php</b>, js');
+echo "<br/>";
+echo "<br/>";
+
+/* echo strip_tags('html <b>php</b> js <c>html</c> <i>php</>','<b><i>');
+echo "<br/>";
+echo "<br/>"; */ //после этого кода строки становятся курсивными...
+
+
+echo htmlspecialchars('html, <b>php</b>, js');
+echo "<br/>";
+echo "<br/>";
+
+echo strstr('ab--cd--ef', '-');
+echo "<br/>";
+echo "<br/>";
+
+$arr = explode('_', 'var_test_text');
+$str = '';
+foreach ($arr as $key=>$val) {
+        if($key == 0) {
+                $str .= $val;
+        } else {
+                $str .=  ucfirst($val);
+        }
+}
+echo $str;
+echo "<br/>";
+echo "<br/>";
+
+$arr = [5, 31, 17, 7, 73, 33];
+foreach ($arr as $val){
+        if (strpos($val, '3') !== false){
+                echo $val. PHP_EOL;
+        }
+}

@@ -963,3 +963,354 @@ foreach ($arr as $val){
                 echo $val. PHP_EOL;
         }
 }
+echo "<br/>";
+echo "<br/>";
+
+
+
+/* -----------------------------   БЛОК 1 - УРОК 8   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 1 - УРОК 8   ------------------------------------- </strong><br/><br/>";
+
+/* Работа с функциями для массивов */
+echo "<strong> Работа с функциями для массивов </strong><br/>";
+echo "<br/>";
+
+// метод 1 - надежно и сердито
+$arr = [];
+for ($i=1; $i < 101; $i++) { 
+        $arr[$i] = $i;
+}
+echo array_sum($arr); 
+echo "<br/>";
+echo "<br/>";
+
+// метод 2 - изящный
+echo array_sum(range(1, 100));
+echo "<br/>";
+echo "<br/>";
+
+/* Функция array_map */
+echo "<strong> Функция array_map </strong><br/>";
+echo "<br/>";
+
+$arr = ['a', 'b', 'c', 'd', 'e'];
+$arr = array_map('strtoupper', $arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с count */
+echo "<strong> Работа с count </strong><br/>";
+echo "<br/>";
+
+$arr = ['a', 'b', 'c', 'd'];
+echo count($arr);
+echo "<br/>";
+echo "<br/>";
+
+echo $arr[count($arr)-1];
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с in_array */
+echo "<strong> Работа с in_array </strong><br/>";
+echo "<br/>";
+
+$arr = [1 , 2, 3, 4, 5];
+var_dump(in_array(3, $arr));
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с array_sum и array_product */
+echo "<strong> Работа с array_sum и array_product </strong><br/>";
+echo "<br/>";
+
+echo array_sum([1, 2, 3, 4, 5]);
+echo "<br/>";
+echo "<br/>";
+
+echo array_product([1, 2, 3, 4, 5]);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+echo array_sum($arr) / count($arr);
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с range */
+echo "<strong> Работа с range </strong><br/>";
+echo "<br/>";
+
+var_dump(range(1,100));
+echo "<br/>";
+echo "<br/>";
+var_dump(range('a', 'z'));
+echo "<br/>";
+echo "<br/>";
+
+echo implode('-', range(1,9));
+echo "<br/>";
+echo "<br/>";
+
+echo array_sum(range(1,100));
+echo "<br/>";
+echo "<br/>";
+
+echo array_product(range(1, 10));
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с range */
+echo "<strong> Работа с range </strong><br/>";
+echo "<br/>";
+
+$arr1 = [1, 2, 3];
+$arr2 = ['a', 'b', 'c'];
+$merge = array_merge($arr1, $arr2);
+var_dump($merge);
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с array_slice */
+echo "<strong> Работа с array_slice </strong><br/>";
+echo "<br/>";
+
+var_dump(array_slice([1, 2, 3, 4, 5], 1, 3));
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с array_splice */
+echo "<strong> Работа с array_splice </strong><br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+var_dump(array_splice($arr, 1, 2));
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+var_dump(array_splice($arr, 0, 4, [2, 3, 4]));
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1,2,3,4,5];
+array_splice ($arr,3, 0, ['a','b','c']);
+var_dump ($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+array_splice($arr, 1, 0, ['a', 'b']);
+array_splice($arr, 6, 0, ['c']);
+array_splice($arr, 8, 0, ['e']);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с array_keys, array_values, array_combine */
+echo "<strong> Работа с array_keys, array_values, array_combine </strong><br/>";
+echo "<br/>";
+
+$arr = ['a'=>1, 'b'=>2, 'c'=>3];
+$keys = array_keys($arr);
+$values = array_values($arr);
+var_dump($keys);
+echo "<br/>";
+echo "<br/>";
+var_dump($values);
+echo "<br/>";
+echo "<br/>";
+
+$arr = array_combine($keys, $values);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['a' => 1, 'b' => 2, 'c' => 3];
+array_flip($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+var_dump(array_reverse($arr));
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['a', '-', 'b', '-', 'c', '-', 'd'];
+var_dump(array_search('-', $arr));
+echo "<br/>";
+echo "<br/>";
+
+$arr2 = array_search('-', $arr);
+array_splice($arr, $arr2, 1);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['a', 'b', 'c,', 'd','e'];
+$result = array_replace($arr, [0 => '!', 2 => '!!']);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$arr =[1, 3, 2, 4, 5];
+sort($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['3'=>'a', '1'=>'c', '2'=>'e', '4'=>'b'];
+(sort($arr));
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['3'=>'a', '1'=>'c', '2'=>'e', '4'=>'b'];
+(asort($arr));
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['3'=>'a', '1'=>'c', '2'=>'e', '4'=>'b'];
+(ksort($arr));
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['a'=>1, 'b'=>2, 'c'=>3];
+echo array_rand($arr, 1);
+echo "<br/>";
+echo "<br/>";
+
+echo $arr[array_rand($arr, 1)];
+echo "<br/>";
+echo "<br/>";
+
+$arr = range(1, 25);
+shuffle($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = range('a', 'z');
+shuffle($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = range('a', 'z');
+shuffle($arr);
+echo implode('', array_slice($arr, 0, 6));
+echo "<br/>";
+echo "<br/>";
+
+$arr =['a', 'b', 'c', 'b', 'a'];
+$arr = array_unique($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+echo array_shift($arr);
+echo array_pop($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+array_push($arr, 6);
+array_unshift($arr, 0);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5, 6, 7, 8];
+$str = '';
+while (count($arr) > 0) {
+    $str .= array_shift($arr);
+    $str .= array_pop($arr);
+}
+
+echo $str;
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['a', 'b', 'c'];
+$arr = array_pad($arr, 6, ' - ');
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = array_fill (0, 10, 'x');
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = range (1, 20);
+var_dump(array_chunk($arr, 4));
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['a', 'b', 'c', 'b', 'a'];
+var_dump(array_count_values($arr));
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3, 4, 5];
+$result = array_map('sqrt', $arr);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$arr = ['<b>php</b>', '<i>html</i>'];
+$result = array_map('strip_tags', $arr);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$arr = [' a ', ' b ', ' с '];
+$result = array_map('trim', $arr);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$arr1 = [1, 2, 3, 4, 5];
+$arr2 = [3, 4, 5, 6, 7];
+$result = array_intersect($arr1, $arr2);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$arr1 = [1, 2, 3, 4, 5];
+$arr2 = [3, 4, 5, 6, 7];
+$result = array_diff($arr1, $arr2);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$str = '1234567890';
+$arr = str_split($str, 1);
+echo array_sum($arr);
+echo "<br/>";
+echo "<br/>";
+
+$str = range('a', 'z');
+$arr = range(1, 26);
+$arr2 = array_combine($str, $arr);
+var_dump($arr2);
+echo "<br/>";
+echo "<br/>";
+
+$arr = range(1, 9);
+var_dump(array_chunk($arr, 3));
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 4, 5, 5];
+$arr2 = array_unique($arr);
+rsort($arr2);
+echo $arr2[1];
+echo "<br/>";
+echo "<br/>";

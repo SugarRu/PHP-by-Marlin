@@ -1314,3 +1314,75 @@ rsort($arr2);
 echo $arr2[1];
 echo "<br/>";
 echo "<br/>";
+
+/* -----------------------------   БЛОК 1 - УРОК 9   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 1 - УРОК 9   ------------------------------------- </strong><br/><br/>";
+
+/* Практика на комбинации стандартных функций */
+echo "<strong> Практика на комбинации стандартных функций </strong><br/>";
+echo "<br/>";
+
+$arr = range(1, 5);
+$result = array_sum($arr) / count($arr);
+echo $result;
+echo "<br/>";
+echo "<br/>";
+
+echo array_sum(range(1, 100));
+echo "<br/>";
+echo "<br/>";
+
+$arr = range(1, 10);
+echo implode('<br>', $arr);
+
+$arr = array_fill(0, 10, 'x');
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$arr = range(1, 10);
+shuffle($arr);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$a = 5;
+$arr = range(1, $a);
+echo array_product($arr);
+echo "<br/>";
+echo "<br/>";
+
+$a = 555;
+$arr = str_split($a, 1);
+echo array_sum($arr);
+echo "<br/>";
+echo "<br/>";
+
+$str = 'word';
+$str = strrev($str);
+$str = ucfirst($str);
+$str = strrev($str);
+echo $str;
+echo "<br/>";
+echo "<br/>";
+
+$arr = [1, 2, 3];
+$result = array_map('sqrt', $arr);
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+$keys = range('a', 'z');
+$elems = range(1, 26);
+$arr = array_combine($keys, $elems);
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+$str = '1234567890';
+$arr = str_split($str, 2);
+$result = array_sum($arr);
+echo $result;
+echo "<br/>";
+echo "<br/>";
+

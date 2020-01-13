@@ -1386,3 +1386,321 @@ echo $result;
 echo "<br/>";
 echo "<br/>";
 
+/* -----------------------------   БЛОК 1 - УРОК 10   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 1 - УРОК 9   ------------------------------------- </strong><br/><br/>";
+
+/* Работа с датами в PHP */
+echo "<strong> Работа с датами в PHP </strong><br/>";
+echo "<br/>";
+
+$time = mktime(12, 58, 59, 9, 23, 2031);
+echo number_format($time, 0, ' ', ' ');
+echo "<br/>";
+echo "<br/>";
+
+echo date('Y.m.d. h:i:s'); 
+echo "<br/>";
+echo "<br/>";
+
+echo date('Y.m.d', mktime(0, 0, 0, 9, 1));
+echo "<br/>";
+echo "<br/>";
+
+$day = date('w', mktime(0, 0, 0, 9, 1, 2010));
+$week = ['вс', 'пн', 'ср', 'чт', 'пт', 'сб'];
+echo $week[$day];
+echo "<br/>";
+echo "<br/>";
+
+$arr = explode('-', '31-12-2025');
+echo mktime(0, 0, 0, $arr[1], $arr[0], $arr[2]);
+echo "<br/>";
+echo "<br/>";
+
+/* Timestamp: time и mktime */
+echo "<strong> Timestamp: time и mktime </strong><br/>";
+echo "<br/>";
+
+echo number_format(time(), 0, ' ', ' ') . " - текущее время";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format(mktime(0, 0, 0, 03, 01, 2025), 0, ' ', ' ') . " - 1 марта 2025 года";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format(mktime(0, 0, 0, 12, 31), 0, ' ', ' ') . " - 31 декабря текущего года";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format((time() - mktime(13, 12, 59, 03, 15, 2000)), 0, ' ', ' ') . " - прошедших с 13:12:59 15-го марта 2000 года";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format(((time() - mktime(07, 23, 48)) / 3600), 0, ' ', ' ') . " - часов, прошедших с 7:23:48 текущего дня ";
+echo "<br/>";
+echo "<br/>";
+
+/* Функция date */
+echo "<strong> Функция date </strong><br/>";
+echo "<br/>";
+
+echo date('Y-m-d h:i:s'). " - текущая дата ";
+echo "<br/>";
+echo "<br/>";
+
+echo date('Y-m-d') . " /// ", date('d.m.Y') . " /// ", date('d.m.y'). " /// ", date('h:i:s') . " - дата-время в форматах 2025-12-31, 31.12.2025, 31.12.13, 12:59:59.";
+echo "<br/>";
+echo "<br/>";
+
+$day = date('w', time());
+$date = date('w', mktime(0, 0, 0, 06, 06, 2006));
+$bday = date('w', mktime(0, 0, 0, 05, 02, 1990));
+$week = ['вс', 'пн', 'ср', 'чт', 'пт', 'сб'];
+echo $week[$day]. " /// ", $week[$date] . " /// ", $week[$bday];
+echo "<br/>";
+echo "<br/>";
+
+$month = [1 => 'январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'агуст', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+$date = date('n', time());
+echo $month[$date];
+echo "<br/>";
+echo "<br/>";
+
+$m = time();
+echo date('t', $m) . "-дней в этом месяце";
+echo "<br/>";
+echo "<br/>";
+echo "<br/>";
+?>
+
+<?php
+/* Для души */
+echo "<strong> Для души </strong><br/>";
+echo "<br/>";
+
+?>
+
+<form action="" method="GET">
+        <input type="text" name="age" placeholder="Введите дату рождения">
+        <input type="submit" value="Отправить">
+</form>
+
+<?php 
+echo "Вы живете:" . "<br/> <br/>";
+if(isset($_REQUEST['age'])){
+$age = $_REQUEST['age'];
+$age_array = explode('.', $age);
+
+echo number_format(((time() - strtotime($age)) / 3600 / 24), 0, ' ', ' ') . " - дней";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format(((time() - strtotime($age)) / 3600), 0, ' ', ' ') . " - часов";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format(((time() - strtotime($age)) / 60), 0, ' ', ' ') . " - минут";
+echo "<br/>";
+echo "<br/>";
+
+echo number_format(time() - strtotime($age), 0, ' ', ' ') . " - секунд";
+echo "<br/>";
+echo "<br/>";
+echo "<br/>";
+
+}
+?>
+
+<?php
+/* Форма високосного года */
+echo "<strong> Форма високосного года </strong><br/>";
+echo "<br/>";
+?>
+
+<form action="" method="POST">
+        <input type="text" name="year" placeholder="Введите год">
+        <input type="submit" value="Отправить">
+</form>
+
+<?php 
+if(isset($_REQUEST['year'])){
+        $year = $_REQUEST['year'];
+        if(date('L', mktime(0, 0, 0, 1, 1, $year)) == 1) {
+                echo "Год високосный";
+        } else {
+                echo "Год не високосный";
+        }       
+}
+echo "<br/>";
+echo "<br/>";
+?>
+
+
+<?php
+/*  День недели (словом) за введенную дату */
+echo "<strong>  День недели (словом) за введенную дату </strong><br/>";
+echo "<br/>";
+?>
+
+<form action="" method="POST">
+        <input type="text" name="date" placeholder="Дата в формате dd.mm.yyyy">
+        <input type="submit" value="Отправить">
+</form>
+
+<?php 
+$week = ['вс', 'пн', 'вт', 'ср','чт', 'пт', 'сб'];
+if(isset($_REQUEST['date'])) {
+
+        $date = $_REQUEST['date'];
+        $date_array = explode('.', $date);
+        $date_to_day = date('w', mktime(0, 0, 0, $date_array[0], $date_array[1], $date_array[3]));
+        echo $week[$date_to_day];
+}
+echo "<br/>";
+echo "<br/>";
+echo "<br/>";
+?>
+
+<?php
+/*  Месяц (словом) за введенную дату */
+echo "<strong>  Месяц (словом) за введенную дату </strong><br/>";
+echo "<br/>";
+?>
+
+<form action="" method="GET">
+        <input type="text" name="date" placeholder="2025-12-31">
+        <input type="submit" value="Send">
+</form>
+
+<?php
+$months = [1 => 'янв', 'фев', 'мар', 'апр', 'май', 'июнь',
+'июль', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+
+if(!empty($_REQUEST['date'])) {
+$date = $_REQUEST['date'];
+$arr = explode('-', $date);
+$timestamp = mktime(0, 0, 0, $arr[1], $arr[2], $arr[0]);
+$month = date('n', $timestamp);
+echo $months[$month];
+}
+echo "<br/>";
+echo "<br/>";
+echo "<br/>";
+?>
+
+<?php
+/*  Сравнение дат */
+echo "<strong>  Сравнение дат </strong><br/>";
+echo "<br/>";
+?>
+
+<form action="" method="GET">
+        <input type="text" name="date1" placeholder="Дата1: 2025-12-31">
+        <input type="text" name="date2" placeholder="Дата2: 2025-12-31">
+        <input type="submit" value="Send">
+</form>
+
+<?php 
+if(isset($_REQUEST['date1']) && isset($_REQUEST['date2'])) {
+        $date1 = $_REQUEST['date1'];
+        $date2 = $_REQUEST['date2'];
+        if ($date1 > $date2) {
+                echo "Первая дата больше";
+        } else {
+                echo "Вторая дата больше";
+        }
+}
+echo "<br/>";
+echo "<br/>";
+echo "<br/>";
+?>
+
+<?php
+/*  Сравнение дат */
+echo "<strong>  Сравнение дат </strong><br/>";
+echo "<br/>";
+
+echo date('d-m-Y', strtotime('2025-12-31'));
+echo "<br/>";
+echo "<br/>";
+
+if(!empty($_REQUEST['date'])) {
+        echo date('H:i:s d.m.Y', strtotime($_REQUEST['date']));
+        }
+        
+        
+?>
+
+<form action="index.php" method="GET">
+        <input type="text" value="" name="date" placeholder="2025-12-31T12:13:59">
+        <input type="submit" value="otpr">
+</form>
+
+<?php
+echo "<br/>";
+echo "<br/>";
+
+/*  Прибавление и отнимание дат */
+echo "<strong>  Прибавление и отнимание дат </strong><br/>";
+echo "<br/>";
+
+$date = date_create('2025-12-31');
+date_modify($date, '2 day');
+echo date_format($date, 'd-m-Y').'<br>';
+echo "<br/>";
+echo "<br/>";
+
+date_modify($date, '1 month 3 day');
+echo date_format($date, 'd-m-Y').'<br>';
+echo "<br/>";
+echo "<br/>";
+
+date_modify($date, '1 year');
+echo date_format($date, 'd-m-Y').'<br>';
+echo "<br/>";
+echo "<br/>";
+
+date_modify($date, '-3 day');
+echo date_format($date, 'd-m-Y');
+echo "<br/>";
+echo "<br/>";
+
+/*  Задачи */
+echo "<strong>  Задачи </strong><br/>";
+echo "<br/>";
+
+$new_year = mktime(0, 0, 0, 12, 31);
+echo "До нового года:" . floor(($new_year - time()) / 24 / 3600) . " дня";
+echo "<br/>";
+echo "<br/>";
+
+
+if(!empty($_REQUEST['year'])) {
+$year = $_REQUEST['year'];
+$arr = [];
+for($i = 1; $i <= 12; $i++) {
+$condition = mktime(0, 0, 0, $i, 13, $year);
+if(date('w', $condition) == 5) {
+$arr[] = date('d-m-Y', $condition);
+}
+}
+var_dump($arr);
+}
+?>
+
+<form action="" method="GET">
+        <input type="text" value="" name="year">
+        <input type="submit" value="Send">
+</form>
+
+<?php
+echo "<br/>";
+echo "<br/>";
+
+$week = ['вс', 'пн', 'вт', 'ср','чт', 'пт', 'сб'];
+$date = date_create();
+date_modify($date, '-100 day');
+$wd = date_format($date, 'w');
+echo $week[$wd];
+?>

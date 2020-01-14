@@ -189,3 +189,111 @@ for ($i=2; $i < 12; $i+=2) {
 echo "<br/>";
 echo "<br/>";
 
+/* -----------------------------   БЛОК 2 - УРОК 4   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 2 - УРОК 4   ------------------------------------- </strong><br/><br/>";
+
+/* Приемы работы с массивами */
+echo "<strong> Приемы работы с массивами </strong> <br/>";
+echo "<br/>";
+
+/* Задача 1 */
+echo "<strong> Задача 1</strong><br/>";
+echo "<br/>";
+
+$arr = [];
+for ($i = 0; $i < 5; $i++) {         
+        $arr[$i] = $arr[$i-1] . 'x';
+}
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 2 */
+echo "<strong> Задача 2 </strong><br/>";
+echo "<br/>";
+
+$arr = [];
+
+for ($i = 1; $i < 6; $i++) {    
+        for ($j=0; $j < $i; $j++) {                 
+                $num .= $i;  
+        }
+        $arr[$i - 1] = $num;
+        $num = '';
+}
+var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 3 */
+echo "<strong> Задача 3 </strong><br/>";
+echo "<br/>";
+
+function arrayFill($a, $b) {
+        $arr = [];
+        for ($i = 0; $i < $b ; $i++) { 
+                $arr[$i] = $arr[$i - 1] . $a; 
+        }
+        return $arr;
+}
+var_dump(arrayFill('x', 5));
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 4 */
+echo "<strong> Задача 4 </strong><br/>";
+echo "<br/>";
+
+$arr = range(1, 5, 1);
+$j = 0;
+for ($i = 0; $j <= 10 ; $i++) { 
+        $j += $arr[$i];
+         
+}
+echo $i - 1; 
+echo "<br/>";
+echo "<br/>";
+
+/* Многомерные массивы*/
+echo "<strong> Многомерные массивы </strong><br/>";
+echo "<br/>";
+
+/* Задача 1 */
+echo "<strong> Задача 1 </strong><br/>";
+echo "<br/>";
+
+$arr = [[1, 2, 3], [4, 5], [6]];
+foreach ($arr as $elem) {
+        foreach ($elem as $subElem) {
+            $sum += $subElem;
+        }
+}
+echo $sum;
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 2 */
+echo "<strong> Задача 2 </strong><br/>";
+echo "<br/>";
+
+$arr = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+foreach ($arr as $elem) {
+        foreach ($elem as $subElem) {
+            foreach ($subElem as $finalValue) {
+                $sum += $finalValue;
+            }
+        }
+}
+echo $sum;
+
+/* Задача 3 */
+echo "<strong> Задача 3 </strong><br/>";
+echo "<br/>";
+
+$n = 1;
+for($i = 0; $i < 3; $i++) {
+        for($j = 0; $j < 3; $j++, $n++) {
+                $arr[$i][$j] = $n;
+        }
+}
+var_dump($arr);

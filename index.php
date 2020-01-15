@@ -285,6 +285,8 @@ foreach ($arr as $elem) {
         }
 }
 echo $sum;
+echo "<br/>";
+echo "<br/>";
 
 /* Задача 3 */
 echo "<strong> Задача 3 </strong><br/>";
@@ -297,3 +299,175 @@ for($i = 0; $i < 3; $i++) {
         }
 }
 var_dump($arr);
+echo "<br/>";
+echo "<br/>";
+
+/* -----------------------------   БЛОК 2 - УРОК 5   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 2 - УРОК 5   ------------------------------------- </strong><br/><br/>";
+
+/* Правильное использование пользовательских функций */
+echo "<strong> Правильное использование пользовательских функций </strong> <br/>";
+echo "<br/>";
+
+/* Задача 1 */
+echo "<strong> Задача 1</strong><br/>";
+echo "<br/>";
+
+
+$arr = [12, 19, 28, 13, 14, 345];
+$result = [];
+
+foreach ($arr as $elem) {
+        $sum = array_sum(str_split($elem, 1));
+    if ($sum >= 1 and $sum <= 9) {
+        $result[] = $elem;
+    }
+}
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 2 */
+echo "<strong> Задача 2 </strong><br/>";
+echo "<br/>";
+
+
+$arr = [12, 19, 28, 13, 14, 345];
+$sum = 0;
+
+foreach ($arr as $elem) {
+        $sum += array_sum(str_split($elem, 1));    
+}
+echo $sum;
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 3 */
+echo "<strong> Задача 3 </strong><br/>";
+echo "<br/>";
+
+$arr = [12, -19, 28, -13, 14, -345];
+$result = [];
+
+function isPositive($num) {
+        return $num > 0;
+}
+
+foreach ($arr as $value) {
+        if (isPositive($value)) {     
+                $result[] = $value;
+        }
+        
+}
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 4 */
+echo "<strong> Задача 4 </strong><br/>";
+echo "<br/>";
+
+function isNumberInRange($num) {
+        return $num > 0 && $num < 10;
+}
+echo isNumberInRange(5);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 5 */
+echo "<strong> Задача 5 </strong><br/>";
+echo "<br/>";
+
+$arr = range (-5, 5, 1);
+$result =[];
+foreach ($arr as $value) {
+        if (isNumberInRange($value)) {
+                $result[] = $value;
+        }
+}
+var_dump($result);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 6 */
+echo "<strong> Задача 6 </strong><br/>";
+echo "<br/>";
+
+function getDigitSum($num) {
+       return array_sum(str_split($num));
+}
+echo getDigitSum(12345);
+
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 7 */
+echo "<strong> Задача 7 </strong><br/>";
+echo "<br/>";
+
+$arr = range(1, 2020, 1);
+foreach ($arr as $value) {
+        if ((getDigitSum($value) == 13)) {
+                $years[] = $value;
+                $count++;
+        }
+}
+echo $count;
+/* var_dump($years); */
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 8 */
+echo "<strong> Задача 8 </strong><br/>";
+echo "<br/>";
+
+function isEven($num) {
+        return $num % 2 == 0;
+}
+
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 9 */
+echo "<strong> Задача 9 </strong><br/>";
+echo "<br/>";
+
+$arr = range(1, 10, 1);
+$evens = [];
+foreach ($arr as $value) {
+        if (isEven($value)) {
+                $evens[] = $value;
+        }
+        
+}
+var_dump($evens);
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 10 */
+echo "<strong> Задача 10 </strong><br/>";
+echo "<br/>";
+
+function getDivisors($num) {
+        $devisors = [];
+        for ($i = 1; $i <= $num; $i++) { 
+               if ($num % $i == 0) {
+                       $devisors[] = $i;
+               }
+        }
+        return $devisors;
+}
+var_dump(getDivisors(6));
+echo "<br/>";
+echo "<br/>";
+
+/* Задача 11 */
+echo "<strong> Задача 11 </strong><br/>";
+echo "<br/>";
+
+
+function getCommonDivisors($num1, $num2) {
+       return array_intersect(getDivisors($num1), getDivisors($num2));      
+}
+
+var_dump(getCommonDivisors(5, 10));

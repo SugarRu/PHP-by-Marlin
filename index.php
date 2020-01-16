@@ -503,3 +503,53 @@ echo luckyorNot(123321);
 echo "<br/>";
 echo "<br/>";
 
+/* -----------------------------   БЛОК 2 - УРОК 7   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 2 - УРОК 7   ------------------------------------- </strong><br/><br/>";
+
+/* Продвинутая работа с пользовательскими функциями */
+echo "<strong> Продвинутая работа с пользовательскими функциями </strong> <br/>";
+echo "<br/>";
+
+/* Задачи для решения */
+echo "<strong> Задачи для решения </strong> <br/>";
+echo "<br/>";
+
+function cut($string, $param = 10) {
+        echo substr($string, 0, $param);
+}
+
+cut('This string is too long');
+echo '<br>';
+echo "<br/>";
+cut('This string is too long', 15);
+echo '<br>';
+echo "<br/>";
+
+/* Работа с рекурсией */
+echo "<strong> Работа с рекурсией </strong> <br/>";
+echo "<br/>";
+
+$arr = range(1, 3, 1);
+
+function first($arr) {
+        echo array_shift($arr) . '<br>';
+        if (!empty($arr)) {
+                first($arr);
+        }
+}
+first($arr);
+echo '<br>';
+echo "<br/>";
+
+$num = 9999;
+
+function sum($num) {
+        $total = array_sum(str_split($num, 1));
+        if ($total > 9) {
+                $total = sum($total);
+        } else {
+                echo $total; 
+        }
+}
+
+sum($num);

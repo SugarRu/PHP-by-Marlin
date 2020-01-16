@@ -471,3 +471,35 @@ function getCommonDivisors($num1, $num2) {
 }
 
 var_dump(getCommonDivisors(5, 10));
+echo "<br/>";
+echo "<br/>";
+
+/* -----------------------------   БЛОК 2 - УРОК 6   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 2 - УРОК 6   ------------------------------------- </strong><br/><br/>";
+
+/* Практика на пользовательские функции */
+echo "<strong> Практика на пользовательские функции </strong> <br/>";
+echo "<br/>";
+
+/* Задачу 1 - 2 - 4 пропустил*/
+echo "<strong> Задачу 1 - 2 - 4 пропустил </strong><br/>";
+echo "<br/>";
+
+/* Задача 3 */
+echo "<strong> Задача 3 </strong><br/>";
+echo "<br/>";
+
+function luckySum($num) {
+        return array_sum(str_split($num, 1));
+}
+
+function luckyOrNot($num) {
+        $num1 = substr($num, 0, 3);
+        $num2 = substr($num, 3, 5);
+        return (luckySum($num1) == luckySum($num2));      
+}
+
+echo luckyorNot(123321);
+echo "<br/>";
+echo "<br/>";
+

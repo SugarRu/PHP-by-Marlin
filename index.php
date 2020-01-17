@@ -553,3 +553,119 @@ function sum($num) {
 }
 
 sum($num);
+echo "<br/>";
+echo "<br/>";
+
+/* -----------------------------   БЛОК 2 - УРОК 8   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 2 - УРОК 8   ------------------------------------- </strong><br/><br/>";
+
+/* Продвинутая работа с формами PHP */
+echo "<strong> Продвинутая работа с формами PHP </strong> <br/>";
+echo "<br/>";
+
+/* Работа с checkbox */
+echo "<strong> Работа с checkbox </strong> <br/>";
+echo "<br/>";
+
+?>
+
+<form action="" method="GET">
+    <input type="text" name="name" value="" placeholder="Ваше имя">   
+    <input type="checkbox" name="checkbox" value="1">
+    <input type="submit">
+</form>
+
+<?php
+   if (isset($_REQUEST['name']) && $_REQUEST['checkbox'] == 1) {
+           echo "Добро пожаловать," . $_REQUEST['name'];
+   } else {
+        echo "До свидания," . $_REQUEST['name'];
+   }
+echo "<br/>";
+echo "<br/>";
+?>
+<hr>
+<p> Какие языки программирования вы знаете" </p>
+<form action="" method="GET">
+    html<input type="checkbox" name="lang[]" value="html">
+    css<input type="checkbox" name="lang[]" value="css">
+    php<input type="checkbox" name="lang[]" value="php">
+    javascript<input type="checkbox" name="lang[]" value="javascript">
+    <input type="submit">
+</form>
+
+<?php
+    if(isset($_REQUEST['lang']))
+    {
+        echo 'Вы знаете: ' . implode(', ', $_REQUEST['lang']);
+    }
+echo "<br/>";
+echo "<br/>";
+
+/* Работа с radio переключателями */
+echo "<strong> Работа с radio переключателями </strong> <br/>";
+echo "<br/>";
+
+?>
+
+<form action="" method="GET">
+    Вы знаете PHP?
+    да<input type="radio" name="php" value="1" checked>
+    нет<input type="radio" name="php" value="0">
+    <input type="submit">
+</form>
+
+<?php
+    if (isset($_REQUEST['php']) and $_REQUEST['php'] == 0) {
+        echo 'Вы не знаете PHP!';
+    }
+
+    if (isset($_REQUEST['php']) and $_REQUEST['php'] == 1) {
+        echo 'Вы знаете PHP!';
+    }
+echo "<br/>";
+echo "<br/>";
+?>
+<form action="" method="GET">
+        Сколько вам лет? 
+        <br>Менее 20 лет <input type="radio" name="age" value="Менее 20 лет" checked>
+        20-25<input type="radio" name="age" value="20-25">
+        26-30<input type="radio" name="age" value="2">
+        более 30<input type="radio" name="age" value="3">
+        <input type="submit">
+</form>
+
+<?php 
+        if (isset($_REQUEST['age']) and $_REQUEST['age'] == 'Менее 20 лет') {
+        echo 'Вам ' . $_REQUEST['age'];
+        }
+
+        if (isset($_REQUEST['age']) and $_REQUEST['age'] == '20-25') {
+        echo $_REQUEST['age'];
+        }
+echo "<br/>";
+echo "<br/>";
+
+/* Select и multi-select */
+echo "<strong> Select и multi-select </strong> <br/>";
+echo "<br/>";
+?>
+
+<form action="" method="GET">
+        Сколько вам лет? 
+        <select name="age"> 
+                <option value="менее 20" selected > менее 20 </option> 
+                <option value="20 - 25 "> 20 - 25 </option>
+                <option value="26 - 30"> 26 - 30 </option>
+                <option value="более 30"> более 30 </option>
+        </select>
+        <input type="submit" name="submit">
+</form>
+
+<?php 
+        if (isset($_REQUEST['submit'])) {
+                echo "Вам " . $_REQUEST['age'] . " лет";                
+        }     
+
+echo "<br/>";
+echo "<br/>";

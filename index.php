@@ -669,3 +669,232 @@ echo "<br/>";
 
 echo "<br/>";
 echo "<br/>";
+
+/* -----------------------------   БЛОК 2 - УРОК 10   --------------------------------------*/
+echo "<strong> -----------------------------   БЛОК 2 - УРОК 10   ------------------------------------- </strong><br/><br/>";
+
+echo '1.' . PHP_EOL;
+echo "До нового года осталось: " . floor((mktime(0, 0, 0, 12, 31) - time()) / 24 / 3600) . " дня";
+echo "<br/>";
+echo "<br/>";
+
+echo '2.' . PHP_EOL;
+?>
+<form action="" method="GET">
+        <input type="text" name="year" placeholder="Введите год">
+        <input type="submit" name="submit">
+</form>
+
+<?php 
+        if (isset($_REQUEST['year'])) {
+                $year = $_REQUEST['year'];
+                        if ($year % 4 == 0  &&  $year % 100 != 0 || $year % 400 == 0) {
+                        echo "високосный";
+                } else echo "не вискокосный";
+        }
+
+echo "<br/>";
+echo "<br/>";
+
+echo '3.' . PHP_EOL;
+?>
+<form action="" method="GET">
+        <input type="text" name="date" placeholder="Введите дату: dd.mm.yyyy">
+        <input type="submit" name="submit">
+</form>
+
+<?php 
+$week = ['вс', 'пн', 'вт', 'ср','чт', 'пт', 'сб'];
+        if (isset($_REQUEST['submit'])) {
+                $date = $_REQUEST['date'];                
+                $arr = explode('.', $date);                
+                $day = date('w', mktime(0, 0, 0, $arr[1], $arr[0], $arr[2]));
+                echo $week[$day];
+        }
+echo "<br/>";
+echo "<br/>";
+
+echo '4.' . PHP_EOL;
+$d = date('w', mktime(0, 0, 0, date('m'), date('d'), date('Y')));
+$d = $week[$d];
+
+$m_arr = [1=>'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Ноябрь', 'Декабрь'];
+$m = date('n', mktime(0, 0, 0, date('m'), date('d'), date('Y')));
+$m = $m_arr[$m];
+
+echo date('d') . ' ' . $m . ' ' . date('Y') . ' год, ' . $d;
+echo "<br/>";
+echo "<br/>";
+
+echo '5.' . PHP_EOL;
+?>
+
+<form action="" method="GET">
+        <input type="text" name="age" placeholder="Введите дату рождения">
+        <input type="submit" value="Отправить">
+</form>
+
+<?php 
+        if(isset($_REQUEST['age'])) {
+                
+                $arr = explode('.', $_REQUEST['age']);
+
+        echo "До дня рождения осталось: " . floor((mktime(0, 0, 0, $arr[1], $arr[0], 2020) - time()) / 24 /3600) . " дней";
+        }
+echo "<br/>";
+echo "<br/>";
+
+echo '6.' . PHP_EOL;
+
+echo "До масленницы осталось: " . floor((mktime(0, 0, 0, 02, 24, 2020) - time()) /24 / 3600) . " дней";
+
+echo "<br/>";
+echo "<br/>";
+
+echo '7.' . PHP_EOL;
+?>
+
+<form action="" method="POST">
+<input type="text" name="date" placeholder="Введите дату: dd.mm">
+<input type="submit">
+</form>
+
+<?php
+
+$signs = [1 => "Козерог", "Водолей", "Рыбы", "Овен", "Телец", "Близнецы", "Рак", "Лев", "Девы", "Весы", "Скорпион", "Стрелец"];
+$signs_date = [1 => 21, 20, 20, 20, 20, 20, 21, 22, 23, 23, 23, 23];
+
+if (isset($_REQUEST['date'])) {
+
+        $date = $_REQUEST['date'];
+        $date = explode('.', $date);
+        $day = $date[0];
+        $month = $date[1];
+    
+        if (substr($month, 0, 1) == 0) {
+            $month = substr($month, 1, 2);
+        }
+        if ($day > $signs_date[$month]) {
+                if ($month == "12") {
+                        $month = "0";
+                }
+                echo $signs[$month + 1];
+        } else  {
+                echo $signs[$month];
+        }
+
+}
+echo "<br/>";
+echo "<br/>";
+
+echo '8.' . PHP_EOL;
+
+$holidays = [1 => [date('Y-m-d',mktime(0, 0, 0, 12, 31)), 'Новый год'], [date('Y-m-d', mktime(0, 0, 0, 02, 23)), '23 - февраля']];
+$today = date('Y-m-d',  time());
+
+foreach ($holidays as $key => $value) {
+       if ($value[0] == $today) {
+              echo $value[1];
+       } else {
+               echo $value[1] . " еще не наступил" . '<br>';
+       }       
+}
+echo "<br/>";
+echo "<br/>";
+
+echo '9.' . PHP_EOL;
+?>
+
+<form action="" method="GET">
+        <input type="text" name="date" placeholder="Введите ваш день рождения">
+        <input type="submit">
+</form>
+
+<?php
+
+$signs = [1 => "Козерог", "Водолей", "Рыбы", "Овен", "Телец", "Близнецы", "Рак", "Лев", "Девы", "Весы", "Скорпион", "Стрелец"];
+
+$signs_date = [1 => 21, 20, 20, 20, 20, 20, 21, 22, 23, 23, 23, 23];
+
+$predictions = [1 => 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо', 'не очень', 'прям такое себе', 'все хорошо'];
+
+if (isset($_REQUEST['date'])) {
+
+        $date = $_REQUEST['date'];
+        $date = explode('.', $date);
+        $day = $date[0];
+        $month = $date[1];
+    
+        if (substr($month, 0, 1) == 0) {
+            $month = substr($month, 1, 2);
+        }
+
+        if (substr($day, 0, 1) == 0) {
+                $day = substr($day, 1, 2);
+        }  
+        
+        if ($day > $signs_date[$month]) {
+                if ($month == "12") {
+                        $month = "0";
+                }              
+
+                echo 'Ты: ' .$signs[$month + 1] . ". Сегодня у тебя " . $predictions[$day];
+        } else  {
+                echo 'Ты: ' .$signs[$month] . ". Сегодня у тебя " . $predictions[$day];
+        }
+      
+}
+echo "<br/>";
+echo "<br/>";
+
+echo '10.' . PHP_EOL;
+?>
+
+<form action="" method="GET">
+        <textarea name="textarea" cols="30" rows="10"></textarea>
+        <input type="submit">
+</form>
+
+<?php
+if(!empty($_REQUEST['textarea'])) {
+
+        $text=$_GET['textarea'];
+
+        echo 'Количество слов в тексте: '. str_word_count($text).'<br>';
+        echo 'Количество символов в тексте: '. mb_strlen($text).'<br>';
+        echo 'количество символов за вычетом пробелов: '.mb_strlen(str_replace(' ','',$text));
+}
+echo "<br/>";
+echo "<br/>";
+
+echo '11.' . PHP_EOL;
+          
+?>
+
+<form action="" method="GET">
+        <textarea name='text'></textarea><br><br>
+        <input type="submit" name='submit'>
+</form>
+
+<?php
+
+        if(!empty($_GET['text'])) {
+                $text = $_GET['text'];
+                $arr = str_split(str_replace(' ','',$text), 1);
+                $arr2 = array_count_values($arr);
+                $length = count($arr);
+
+                foreach($arr2 as $key => $elem) {
+                        $percent = ($elem * 100) / $length;
+                        echo $key . '-' . floor($percent) .'%' . '<br>';
+                
+                }
+        }
+echo "<br/>";
+echo "<br/>";
+                
+
+
+
+
+            
